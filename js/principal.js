@@ -29,12 +29,16 @@ for( var i = 0; i < pacientes.length; i++){
     console.log("peso invalido");
     pesoValidado = false;
     tdImc.textContent = "Peso inválido";
+
+    paciente.classList.add("paciente-invalido"); // add classList, pega a classe do css e faz a alteração que estiver no estilo
   }
 
   if (altura <= 0 || altura >= 3.0) {
     console.log("Altura invalida");
     alturaValida = false;
     tdImc.textContent = "Altura inválida";
+
+    paciente.classList.add("paciente-invalido");
   }
 
 
@@ -47,6 +51,14 @@ for( var i = 0; i < pacientes.length; i++){
   }
 
 }
+
+// add uma função e evento ao clicar no botão do formulario
+var botaoAdicionar = document.querySelector("#adicionar-paciente");
+   botaoAdicionar.addEventListener('click', function(event){
+     event.preventDefault(); // ao clicar não recarregar a pagina
+     console.log("Fui clicado");
+   });
+
 
 // consoles que aparece os resultados no console do navegador
 
