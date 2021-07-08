@@ -11,6 +11,8 @@ var altura = tdAltura.textContent;
 var peso = tdPeso.textContent;
 var gordura = tdGordura.textContent;
 
+
+// consoles que aparece os resultados no console do navegador
 console.log(paciente);
 console.log(tdPeso);
 console.log(peso);
