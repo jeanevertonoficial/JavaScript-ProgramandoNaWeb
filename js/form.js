@@ -3,10 +3,9 @@ var botaoAdicionar = document.querySelector("#adicionar-paciente");
    botaoAdicionar.addEventListener('click', function(event){  // função que escuta o evento ao click no botão
      event.preventDefault(); // ao clicar não recarregar a pagina
 
-     var form = document.querySelector("#form-adiciona");  // função adicionar novo cliente na tabela, lendo os dados da tabela
-     // pegando dados do form
+    // função adicionar novo cliente na tabela, lendo os dados da tabela
+     var form = document.querySelector("#form-adiciona");
      var paciente = document = objetoPaiente(form);
-
      var pacienteTr = montarTr(paciente);
 
 // adicionando o paciente a tabela
@@ -21,7 +20,7 @@ var botaoAdicionar = document.querySelector("#adicionar-paciente");
 // criando um objeto paciente
 function objetoPaiente(form) {
   var paciente = {
-    nome: form.nome.value,
+    nome: form.nome.value, // recebendo os valores de cada campo do formulario
     peso: form.peso.value,
     altura: form.altura.value,
     gordura: form.gordura.value,
@@ -30,10 +29,11 @@ function objetoPaiente(form) {
   return paciente;
 }
 
+//função montaTr paciente através dela é facil de montar os  formulario com apenas um chamada de função em vez de repetir o codigo varias vezes
 function montarTr(paciente) {
      var pacienteTr = document.createElement("tr"); // tr de uma div no formulario
      pacienteTr.classList.add("paciente");
-
+     //colocando a montarTd dentro do montarTr e montando o formulario retornando o pacienteTr
           pacienteTr.appendChild(montarTd(paciente.nome, "info-nome"));
           pacienteTr.appendChild(montarTd(paciente.peso, "info-peso"));
           pacienteTr.appendChild(montarTd(paciente.altura, "info-altura"));
@@ -44,6 +44,7 @@ function montarTr(paciente) {
      return pacienteTr;
 }
 
+// função montarTd uma função para montar todos os campos do formulario de uma unica vez por um chamada apenas, pegando todos os campas
 function montarTd(dado, classe) {
   var td = document.createElement("td");
   td.textContent = dado;

@@ -8,18 +8,20 @@ var pacientes =  document.querySelectorAll(".paciente"); // Variavel que percorr
   // Estrutura For para percorrer o array
 for( var i = 0; i < pacientes.length; i++){
 
-  var paciente = pacientes[i]; // paciente passa a ser pacientes, recebendo i como um parametro para passar no for e ler a array
+// paciente passa a ser pacientes, recebendo i como um parametro para passar no for e ler a array
+  var paciente = pacientes[i];
 
-  var tdPeso = paciente.querySelector(".info-peso"); // lendo e pegando as classes conforme o nome
+// lendo e pegando as classes conforme o nome
+  var tdPeso = paciente.querySelector(".info-peso");
   var peso = tdPeso.textContent;
 
-  var tdAltura = paciente.querySelector(".info-altura");  // lendo e pegando as classes conforme o nome
+  var tdAltura = paciente.querySelector(".info-altura");
   var altura = tdAltura.textContent;
 
-  var tdGordura = paciente.querySelector(".info-gordura");  // lendo e pegando as classes conforme o nome
+  var tdGordura = paciente.querySelector(".info-gordura");
   var gordura = tdGordura.textContent;
 
-  var tdImc = paciente.querySelector(".info-imc");  // lendo e pegando as classes conforme o nome
+  var tdImc = paciente.querySelector(".info-imc");
 
 // validando e passando uma condição como verdadeiro para peso e altura
   var pesoValidado = true;
@@ -31,7 +33,6 @@ for( var i = 0; i < pacientes.length; i++){
     console.log("peso invalido");
     pesoValidado = false;
     tdImc.textContent = "Peso inválido";
-
     paciente.classList.add("paciente-invalido"); // add classList, pega a classe do css e faz a alteração que estiver no estilo
   }
 // validando a altura
@@ -39,7 +40,6 @@ for( var i = 0; i < pacientes.length; i++){
     console.log("Altura invalida");
     alturaValida = false;
     tdImc.textContent = "Altura inválida";
-
     paciente.classList.add("paciente-invalido");
   }
 
@@ -48,7 +48,8 @@ for( var i = 0; i < pacientes.length; i++){
     var imc = calculaImc(peso,altura); // recebendo por parametro a função calculaImc
     tdImc.textContent = imc;
     // 100 / 2.0 * 2.0 = 100 / 4 ==> 25
-  } else if ((peso <= 0 || peso >= 1000) && (altura <= 0 || altura >= 3.0)) { // else caso as duas condições chegam falsas
+    // else caso as duas condições chegam falsas
+  } else if ((peso <= 0 || peso >= 1000) && (altura <= 0 || altura >= 3.0)) {
     tdImc.textContent = "Peso e Altura inválidos.";
   }
 
@@ -62,5 +63,3 @@ function calculaImc(peso, altura){
 
   return imc.toFixed(2); // toFixed é um padrão de formatar casas decimais no javaScript
 }
-
-// consoles que aparece os resultados no console do navegador
