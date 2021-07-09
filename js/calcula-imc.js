@@ -43,15 +43,24 @@ for( var i = 0; i < pacientes.length; i++){
     paciente.classList.add("paciente-invalido");
   }
 
-// if  que passa por DEFAULT verdadeiro, casa nenhuma das condições chejam false e chegam verdadeiras 
+// if  que passa por DEFAULT verdadeiro, casa nenhuma das condições chejam false e chegam verdadeiras
   if (pesoValidado && alturaValida) {
-    var imc = peso /(altura * altura);
-    tdImc.textContent = imc.toFixed(2); // toFixed é um padrão de formatar casas decimais no javaScript
+    var imc = calculaImc(peso,altura); // recebendo por parametro a função calculaImc
+    tdImc.textContent = imc;
     // 100 / 2.0 * 2.0 = 100 / 4 ==> 25
   } else if ((peso <= 0 || peso >= 1000) && (altura <= 0 || altura >= 3.0)) { // else caso as duas condições chegam falsas
     tdImc.textContent = "Peso e Altura inválidos.";
   }
 
+}
+
+// calculando o imc com uma função, assim é possivel passar por parametro
+function calculaImc(peso, altura){
+  var imc = 0;
+
+  imc = peso / (altura * altura);
+
+  return imc.toFixed(2); // toFixed é um padrão de formatar casas decimais no javaScript
 }
 
 // consoles que aparece os resultados no console do navegador
