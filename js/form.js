@@ -8,6 +8,11 @@ var botaoAdicionar = document.querySelector("#adicionar-paciente");
      var paciente = document = objetoPaiente(form);
      var pacienteTr = montarTr(paciente);
 
+     if(!validaPaciente(paciente)){ // ! negação se for invalido
+       console.log("Paciente inválido");
+       return; // return para a excução aqui se o paciente for invalido
+     }
+
 // adicionando o paciente a tabela
      var tabela = document.querySelector("#tabela-pacientes");
 
@@ -52,3 +57,11 @@ function montarTd(dado, classe) {
 
   return td;
 }
+// função para validação de paciente
+ function validaPaciente(paciente) {
+   if(validaPeso(paciente.peso)){
+     return true;
+   }else {
+     return false;
+   }
+ }
