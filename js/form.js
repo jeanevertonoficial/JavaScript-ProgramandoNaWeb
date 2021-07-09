@@ -14,7 +14,8 @@ var botaoAdicionar = document.querySelector("#adicionar-paciente");
 
      tabela.appendChild(pacienteTr);
 
-     form.reset(); // limpando os campos do formulario com reset 
+// limpando os campos do formulario com reset
+     form.reset();
 });
 
 // criando um objeto paciente
